@@ -1,4 +1,4 @@
-package PageUis.admin;
+package pageUis.user;
 
 public class RegisterPageUIs {
 }

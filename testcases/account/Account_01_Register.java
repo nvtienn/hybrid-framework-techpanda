@@ -1,19 +1,20 @@
 package account;
 
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class Account_01_Register {
+public class Account_01_Register extends BaseTest {
     WebDriver driver;
-    String projectPath = System.getProperty("user.dir");
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass(){
-        System.setProperty("webdriver.chrome.driver",projectPath + "/browserDrivers/chromedriver.exe");
-        driver = new ChromeDriver();
+    public void beforeClass(String browser){
+        driver = getBrowserDriver(browser);
     }
 
 

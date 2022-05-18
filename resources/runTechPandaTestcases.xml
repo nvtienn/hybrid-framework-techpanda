@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Tech Panda">
     <test thread-count="5" name="Run on Chrome browser">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="account.Account_01_Register"/>
         </classes>
