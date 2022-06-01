@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class BasePage {
+    public static BasePage getBasePageInstance(){
+        return new BasePage();
+    }
     public void openPageURL(WebDriver driver, String pageURL) {
         driver.get(pageURL);
     }
@@ -49,6 +52,14 @@ public class BasePage {
             }
         }
 
+    }
+    public void waitForElementClickable(WebDriver driver, String locator){
+        WebDriverWait webDriverWait = new WebDriverWait(driver,longTimeout);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
+    }
+    public void waitForElementVisible(WebDriver driver, String locator){
+        WebDriverWait webDriverWait = new WebDriverWait(driver,longTimeout);
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
     }
 
     public void sleepInSecond(int timeInSecond) {
