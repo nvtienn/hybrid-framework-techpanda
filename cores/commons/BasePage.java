@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageUis.user.ProfilePageUIs;
 
 import java.util.List;
 
@@ -37,6 +38,11 @@ public class BasePage {
     public String getTextFromElement(WebDriver driver, String locator){
         return getWebElement(driver,locator).getText();
     }
+    public String getAttributeValue(WebDriver driver, String locator, String attribute){
+        waitForElementVisible(driver, ProfilePageUIs.EMAIL_FIELD);
+        sleepInSecond(2);
+        return getWebElement(driver,locator).getAttribute(attribute);
+    }
 
     public void selectOptionInCustomDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedItemText){
         getWebElement(driver,parentLocator).click();
@@ -52,6 +58,9 @@ public class BasePage {
             }
         }
 
+    }
+    public boolean isElementDisplayed(WebDriver driver, String locator){
+        return getWebElement(driver,locator).isDisplayed();
     }
     public void waitForElementClickable(WebDriver driver, String locator){
         WebDriverWait webDriverWait = new WebDriverWait(driver,longTimeout);
