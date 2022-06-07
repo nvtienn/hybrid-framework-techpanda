@@ -1,24 +1,19 @@
 package account;
 
-import commons.BasePage;
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.user.DashboardPageObject;
 import pageObjects.user.HomePageObject;
 import pageObjects.user.LoginPageObject;
 import pageObjects.user.ProfilePageObject;
 
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class Account_01_Login extends BasePage {
+public class Account_01_Login extends BaseTest {
     WebDriver driver;
-    String projectPath = System.getProperty("user.dir");
     HomePageObject homePageObject;
     LoginPageObject loginPageObject;
     DashboardPageObject dashboardPageObject;
@@ -26,17 +21,14 @@ public class Account_01_Login extends BasePage {
     String validEmail = System.getenv("PROD_LOGIN_EMAIL");
     String validPassword = System.getenv("PROD_LOGIN_PASSWORD");
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass(){
-        System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    public void beforeClass(String browserName){
+        driver = getBrowserDriver(browserName);
+        homePageObject = new HomePageObject(driver);
     }
     @Test
     public void TC_01_Login_Invalid_Account(){
-        openPageURL(driver,"https://sellerwix.com/");
-        homePageObject = new HomePageObject(driver);
         homePageObject.clickToLoginLink();
         loginPageObject = new LoginPageObject(driver);
         loginPageObject.inputEmailToTextBox("");
@@ -47,10 +39,8 @@ public class Account_01_Login extends BasePage {
     }
     @Test
     public void TC_02_Login_Valid_Account(){
-        openPageURL(driver,"https://sellerwix.com/");
-        homePageObject = new HomePageObject(driver);
-        homePageObject.clickToLoginLink();
-        loginPageObject = new LoginPageObject(driver);
+//        homePageObject.clickToLoginLink();
+//        loginPageObject = new LoginPageObject(driver);
         loginPageObject.inputEmailToTextBox(validEmail);
         loginPageObject.inputPasswordToTextBox(validPassword);
         loginPageObject.clickToLoginButton();
