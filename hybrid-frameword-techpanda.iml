@@ -29,5 +29,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="web-driver-manager" level="project" />
   </component>
 </module>
