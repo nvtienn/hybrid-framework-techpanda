@@ -2,11 +2,25 @@ package commons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
-    WebDriver driver;
+public abstract class BaseTest {
+    protected static WebDriver driver;
+
+    @Parameters("browser")
+    @BeforeClass
+    public void beforeClass(String browserName) {
+        driver = getBrowserDriver(browserName);
+    }
+
+    @AfterClass
+    public void afterClass() {
+        driver.quit();
+    }
 
     public WebDriver getBrowserDriver(String browser) {
         BrowserList browserList = BrowserList.valueOf(browser.toUpperCase());
