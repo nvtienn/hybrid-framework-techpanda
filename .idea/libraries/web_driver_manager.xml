@@ -24,7 +24,6 @@
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jackson-annotations-2.10.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jackson-core-2.10.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jackson-databind-2.10.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libWebDriverManager/jcl-over-slf4j-1.7.30.jar!/" />
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jna-5.8.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jsoup-1.14.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/libWebDriverManager/jsr305-3.0.2.jar!/" />
