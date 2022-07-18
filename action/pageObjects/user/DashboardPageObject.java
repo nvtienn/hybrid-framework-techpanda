@@ -16,9 +16,10 @@ public class DashboardPageObject extends BasePage {
         clickToElement(driver, DashboardPageUIs.AVATAR_IMAGE_LINK);
     }
 
-    public void clickProfileButton() {
+    public ProfilePageObject clickProfileButton() {
         waitForElementClickable(driver, DashboardPageUIs.PROFILE_BUTTON);
         clickToElement(driver, DashboardPageUIs.PROFILE_BUTTON);
+        return PageGeneratorManager.getProfilePage(driver);
     }
 
     public boolean isAvatarDisplayed() {

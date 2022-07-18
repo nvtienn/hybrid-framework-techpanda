@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageUis.user.ProfilePageUIs;
 
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class BasePage {
         return getWebElement(driver,locator).getText();
     }
     public String getAttributeValue(WebDriver driver, String locator, String attribute){
-        waitForElementVisible(driver, ProfilePageUIs.EMAIL_FIELD);
+        waitForElementVisible(driver, locator);
         sleepInSecond(2);
         return getWebElement(driver,locator).getAttribute(attribute);
     }

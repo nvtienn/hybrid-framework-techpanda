@@ -18,9 +18,10 @@ public class LoginPageObject extends BasePage {
         waitForElementVisible(driver, LoginPageUIs.PASSWORD_TEXTBOX);
         sendKeyToElement(driver, LoginPageUIs.PASSWORD_TEXTBOX, password);
     }
-    public void clickToLoginButton(){
+    public DashboardPageObject clickToLoginButton(){
         waitForElementClickable(driver, LoginPageUIs.LOGIN_BUTTON);
         clickToElement(driver,LoginPageUIs.LOGIN_BUTTON);
+        return PageGeneratorManager.getDashboardPage(driver);
     }
     public String getEmailErrorMessage(){
         waitForElementVisible(driver, LoginPageUIs.EMAIL_ERROR_MESSAGE);

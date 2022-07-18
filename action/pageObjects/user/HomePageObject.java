@@ -11,7 +11,8 @@ public class HomePageObject extends BasePage {
         this.driver = driver;
     }
 
-    public void clickToLoginLink() {
+    public LoginPageObject clickToLoginLink() {
         clickToElement(driver, HomePageUIs.LOGIN_LINK);
+        return PageGeneratorManager.getLoginPage(driver);
     }
 }
